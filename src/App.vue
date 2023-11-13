@@ -1,25 +1,15 @@
 <script setup>
-import carsData from "./Data.json";
-import {ref} from "vue";
+import {RouterView, RouterLink} from "vue-router"
 
-const cars = ref(carsData);
 </script>
 
 <template>
-  <main class="container">
+  <main>
     <div class="links">
-      <a href="/">Home</a>
-      <a href="/about">About</a>
+      <RouterLink active-class="active" to="/">Home</RouterLink>
+      <RouterLink active-class="active" to="/about">About</RouterLink>
     </div>
-    <h1>Our Cars</h1>
-    <div class="cards">
-      <div v-for="car in cars" :key="car.id" class="card">
-        <h1>{{car['make']}}</h1>
-        <p>${{car['price']}}</p>
-
-      </div>
-    </div>
-
+    <RouterView />
   </main>
 </template>
 
